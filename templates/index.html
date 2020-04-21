@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <title>Web Map UI</title>
+        <link rel="shortcut icon" href="static/favicon.ico"/>
+        <link rel="stylesheet" type="text/css" href="static/style.css"/>
+        <link rel="stylesheet" href="static/leaflet.css"/>
+        <link rel="stylesheet" href="static/leaflet.wmslegend.css"/>
+        <script src="static/leaflet.js"></script>
+        <script src="static/jquery-3.5.0.min.js"></script>
+
+        <script src="static/leaflet.wmslegend.js"></script>
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <h1>Web Mapping Application</h1>
+            </div>
+            <div id="content">
+                <div id="nav">
+                    <h3>Navigation</h3>
+                    <ul>
+                        <li><a class="selected" href="">Temperature</a></li>
+                        <li><a href="">Humidity</a></li>
+                        <li><a href="">Precipitation</a></li>
+                    </ul>
+                </div>
+                <div id="main">
+                    <div id=mapid>
+                </div>
+            </div>
+        </div>
+            <div id="footer">
+                Copyright &copy; 2020 Alexandros Vythoulkas
+            </div>
+        <script src="static/wms.js"></script>
+    </body>
+</html>
