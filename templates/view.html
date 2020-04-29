@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container" id=mapid style="height: 45rem;"></div>
+<script> var mapType = '{{ service_type }}' </script>
+<script src="{{ url_for ('static', filename='wms.js') }}"></script>
+{% endblock %}

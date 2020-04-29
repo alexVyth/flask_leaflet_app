@@ -2,6 +2,8 @@ var map = L.map('mapid', {
     center: [0, 0],
     zoom: 2
 });
+map._fadeAnimated = false
+
 var baseLayers = {
 Temperature: L.tileLayer.wms('http://localhost:8080/geoserver/geo/ows', {
     className: 'temp',
@@ -66,3 +68,26 @@ function checkBaseMap() {
     }
 }
 map.on('baselayerchange', checkBaseMap);
+
+updateMap = function( {value} ){
+    var s = value + "";
+    if (s.length < 2) s = "0" + s;
+    time = "2000-" + s + "-01";
+
+    if (document.getElementsByClassName('temp').length > 0) {
+        baseLayers.Temperature.setParams({"time": time, "layers": "temp"});
+    }
+    if (document.getElementsByClassName('hum').length > 0) {
+        baseLayers.Humidity.setParams({"time": time, "layers": "hum"});
+    }
+    if (document.getElementsByClassName('prec').length > 0) {
+        baseLayers.Precipitation.setParams({"time": time, "layers": "prec"});
+    }
+}
+
+if (mapType == 'monthly') {
+    L.control.timelineSlider({
+                    timelineItems: ["January", "February", "March", "April", "May", "June", "Jule", "August", "September", "October", "November", "December"],
+                    changeMap: updateMap })
+                .addTo(map); 
+}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Simple app to calculate Edge Detection by Canny Algorithm.</h3>
+    <p> Choose the data of interest:</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+
+        <a href="{{ url_for('process_temp') }}">Temperature</a>
+        <img src="http://localhost:8080/geoserver/ows?service=WMS&version=1.3.0&request=GetMap&layers=annual_temp&width=180&height=90&format=image/png&bbox=-180,-90,180,90" alt="Snow">
+    </div>
+    <div class="col-sm">
+        <a href="{{ url_for('process_hum') }}">Humidity</a>
+        <img src="http://localhost:8080/geoserver/ows?service=WMS&version=1.3.0&request=GetMap&layers=annual_hum&width=180&height=90&format=image/png&bbox=-180,-90,180,90" alt="Snow">
+    </div>
+    <div class="col-sm">
+        <a href="{{ url_for('process_prec') }}">Precipitation</a>
+        <img src="http://localhost:8080/geoserver/ows?service=WMS&version=1.3.0&request=GetMap&layers=annual_prec&width=180&height=90&format=image/png&bbox=-180,-90,180,90" alt="Snow">
+    </div>
+  </div>
+</div>
+
+{% endblock %}
